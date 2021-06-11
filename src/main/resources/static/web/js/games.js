@@ -1,5 +1,5 @@
 
-fetch("http://localhost:8080/api/games")
+fetch("/api/games")
      .then(function (response) {
           if (response.ok) {
                return response.json();
