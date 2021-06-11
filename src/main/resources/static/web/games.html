@@ -33,8 +33,8 @@
                             <p>Password: <input type="password" v-model:name="password"></p>
                         </label>
                     </form>
-                    <button class="login btn btn-primary" v-on:click="login()">Log In</button>
-                    <button class="btn btn-primary" v-on:click="createUser()">Sing In</button>
+                    <button class="login btn btn-primary" v-on:click="login()">Registrarse</button>
+                    <button class="btn btn-primary" v-on:click="createUser()">Iniciar Sesion</button>
                 </div>
             </div>
         </div>
@@ -44,8 +44,8 @@
                 <button id="buttonLogout" class="btn btn-danger" v-on:click="logout"><b>Log Out</b></button>
                 </div>
                 <div class="col">
-                <button class="buttonColor btn text-light" v-on:click="createGame"><b>Create
-                        Game</b></button>
+                <button class="buttonColor btn text-light" v-on:click="createGame"><b>Crear
+                        Juego</b></button>
             </div>
         </div>
 
@@ -67,11 +67,10 @@
                             <ul>
                                 <li v-for="gamePlayer in game.gamePlayers">{{gamePlayer.player.email}}<a
                                         v-if="data.player != null && data.player.id == gamePlayer.player.id"
-                                        v-bind:href="url+gamePlayer.id"><button class="btn btn-primary text-light"><b>game
-                                    {{game.id}}</b></button></a>
+                                        v-bind:href="url+gamePlayer.id"><button class="btn btn-primary text-light"><b>reingresar a tu juego</b></button></a>
 
                                     <button id="buttonJoin" class="btn text-light text-center" v-if="data.player != null && data.player.id != gamePlayer.player.id &&
-                                     game.gamePlayers.length==1" v-on:click="joinGame(game.id)"><b>join</b></button>
+                                     game.gamePlayers.length==1" v-on:click="joinGame(game.id)"><b>unirse</b></button>
                                 </li>
 
                             </ul>

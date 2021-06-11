@@ -152,53 +152,53 @@ var app = new Vue({
                               }
                          })
                     }
-
-                    if (this.clicks % 2 == 1) {
-                         if (letra + shipSelect.size > 10) {
-                              shipSelect.locations = [];
-
-                              document.getElementById("text").textContent = "no hay espacio para mover el barco en esa direccion"
-                         } else {
-                              shipSelect.locations = [];
-                              for (j; j < shipSelect.size; j++) {
-                                   shipSelect.locations.push(app.letras[letra + j] + app.numeros[numero]);
-                              }
-                         }
-                         app.detalle = "vertical";
-
-                    } else {
-                         if (numero + shipSelect.size > 10) {
-                              shipSelect.locations = [];
-
-                              document.getElementById("text").textContent = "no hay espacio para mover el barco en esa direccion"
-
-                         } else {
-                              shipSelect.locations = [];
-                              for (j; j < shipSelect.size; j++) {
-                                   shipSelect.locations.push(app.letras[letra] + app.numeros[numero + j]);
-                              }
-                         }
-                         app.detalle = "horizontal";
-                    }
-
-                    if (!app.overheated(shipSelect)) {
-                         if (app.detalle == "vertical") {
-                              shipSelect.locations.forEach((location, index) => {
-                                   document.getElementById('k' + location).className = shipSelect.type + "-" + index + "v";
-                                   document.getElementById("text").textContent = ""
-                              })
-
-                         } else if (app.detalle == "horizontal") {
-                              shipSelect.locations.forEach((location, index) => {
-                                   document.getElementById('k' + location).className = shipSelect.type + "-" + index;
-                                   document.getElementById("text").textContent = ""
-                              })
-                         }
-                    } else {
-                         document.getElementById("text").textContent = "there is no space to put the ship"
-                    }
-
                }
+
+               if (this.clicks % 2 == 1) {
+                    if (letra + shipSelect.size > 10) {
+                         shipSelect.locations = [];
+
+                         document.getElementById("text").textContent = "no hay espacio para mover el barco en esa direccion"
+                    } else {
+                         shipSelect.locations = [];
+                         for (j; j < shipSelect.size; j++) {
+                              shipSelect.locations.push(app.letras[letra + j] + app.numeros[numero]);
+                         }
+                    }
+                    app.detalle = "vertical";
+
+               } else {
+                    if (numero + shipSelect.size > 10) {
+                         shipSelect.locations = [];
+
+                         document.getElementById("text").textContent = "no hay espacio para mover el barco en esa direccion"
+
+                    } else {
+                         shipSelect.locations = [];
+                         for (j; j < shipSelect.size; j++) {
+                              shipSelect.locations.push(app.letras[letra] + app.numeros[numero + j]);
+                         }
+                    }
+                    app.detalle = "horizontal";
+               }
+
+               if (!app.overheated(shipSelect)) {
+                    if (app.detalle == "vertical") {
+                         shipSelect.locations.forEach((location, index) => {
+                              document.getElementById('k' + location).className = shipSelect.type + "-" + index + "v";
+                              document.getElementById("text").textContent = ""
+                         })
+
+                    } else if (app.detalle == "horizontal") {
+                         shipSelect.locations.forEach((location, index) => {
+                              document.getElementById('k' + location).className = shipSelect.type + "-" + index;
+                              document.getElementById("text").textContent = ""
+                         })
+                    }
+               } else {
+                    document.getElementById("text").textContent = "there is no space to put the ship"
+               }
+
           },
           overheated: function (ship) {
 
@@ -355,7 +355,7 @@ var app = new Vue({
                          if (response.ok) {
                               return response.json();
                          }
-                    }).then((json)=> {
+                    }).then((json) => {
                          this.gameView = json;
                          this.playersName();
                          this.paintShips();
