@@ -41,7 +41,7 @@
 
         <div class="row" id="logout" v-show="data.player != null">
             <div class="col">
-                <button id="buttonLogout" class="btn btn-danger" v-on:click="logout"><b>Log Out</b></button>
+                <button id="buttonLogout" class="btn btn-danger" v-on:click="logout"><b>Cerrar Sesion</b></button>
                 </div>
                 <div class="col">
                 <button class="buttonColor btn text-light" v-on:click="createGame"><b>Crear
@@ -67,7 +67,7 @@
                             <ul>
                                 <li v-for="gamePlayer in game.gamePlayers">{{gamePlayer.player.email}}<a
                                         v-if="data.player != null && data.player.id == gamePlayer.player.id"
-                                        v-bind:href="url+gamePlayer.id"><button class="btn btn-primary text-light"><b>reingresar a tu juego</b></button></a>
+                                        v-bind:href="url+gamePlayer.id"><button class="btn btn-primary text-light"><b>reingresar</b></button></a>
 
                                     <button id="buttonJoin" class="btn text-light text-center" v-if="data.player != null && data.player.id != gamePlayer.player.id &&
                                      game.gamePlayers.length==1" v-on:click="joinGame(game.id)"><b>unirse</b></button>
