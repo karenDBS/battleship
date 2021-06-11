@@ -124,7 +124,7 @@ var app = new Vue({
                          })
 
                } else {
-                    alert("You must locate all the ships to save them");
+                    alert("Debes ubicar todos los barcos para poder enviarlos");
                }
           },
           locationShip: function (letr, number) {
@@ -196,7 +196,7 @@ var app = new Vue({
                          })
                     }
                } else {
-                    document.getElementById("text").textContent = "there is no space to put the ship"
+                    document.getElementById("text").textContent = "no hay espacio para poner el barco";
                }
 
           },
@@ -243,7 +243,7 @@ var app = new Vue({
                                         document.getElementById(letr.toLowerCase() + number).className = "newColorSalvos";
 
                                    } else {
-                                        alert("you can't shoot in a place where it has already been shot")
+                                        alert("No puedes disparar en un lugar en el que ya disparaste anteriormente")
                                    }
                               }
                          }
@@ -278,7 +278,7 @@ var app = new Vue({
                          })
 
                } else {
-                    alert("You must have 5 shots to save them");
+                    alert("Debes enviar 5 disparos");
                }
           },
           removeSalvos: function () {
@@ -327,6 +327,7 @@ var app = new Vue({
           },
           changes: function () {
                var status = {
+                    WAITING_YOU_SHIPS: "Selecciona tus barcos para poder colocarlos",
                     WAITING_OPPONENT: "Esperando un oponente...",
                     WAITING_OPPONENT_SHIPS: "Esperando a que el oponente coloque sus barcos...",
                     WAITING_YOU_SALVOS: "Esperando a que dispares",

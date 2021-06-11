@@ -43,7 +43,7 @@
         <div class="row justify-content-center" id="selectAndSave" v-if="gameView != undefined">
             <div class="col-12">
                 <h5 v-if="gameView.state == 'WAITING_YOU_SHIPS'" class="textShips text-light text-center">
-                    <b>{{status}}</b>
+                    {{status}}
                 </h5>
             </div>
             <div class="col-2" v-show="gameView.ships != null && app.gameView.ships.length == 0">
