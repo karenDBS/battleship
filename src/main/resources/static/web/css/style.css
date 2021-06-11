@@ -29,19 +29,21 @@ body{
     font-size: 30px;
 }
 
-.textShips{
-    text-shadow:  0.1em 0.1em 0.2em black;
-    padding-bottom: 1%;
-    font-family: 'Orbitron', sans-serif;
-}
-
 .messageError{
     margin-top:12%;
 }
 
+#saveSalvos{
+    margin-top: 1%;
+    margin-bottom: -1%;
+}
+
 #textState{
+    font-family: 'Orbitron', sans-serif;
     text-shadow:  0.1em 0.1em 0.2em black;
     font-size: 20px;
+    margin-top: 1%;
+    margin-bottom: -1%;
 }
 
 .mover{ 
@@ -74,10 +76,6 @@ table th{
 
 #myTable{
     margin-top: -0%;
-}
-
-#tablaSalvos{
-    margin-top: -2%;
 }
 
 .colorShips{

@@ -10,7 +10,7 @@
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Squada+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <title>Title</title>
+    <title>Battleship Game</title>
 </head>
 
 <body>
@@ -32,6 +32,12 @@
                 <h5 class="players text-light text-center">{{players.playerA.email}}(you)
                     vs {{players.playerB.email}}</h5>
             </div>
+            <div class="col-8">
+                <h5 class="text-info text-center" id="textState"><strong>{{status}}</strong></h5>
+            </div>
+            <div class="col-4" v-if="gameView.salvoes != null && gameView.state == 'WAITING_YOU_SALVOS'">
+                <button id="saveSalvos" class="btn btn-primary" v-on:click="saveSalvos"><b>enviar disparos</b></button>
+            </div>
         </div>
         <div class="row">
             <div class="col" v-show="gameView == undefined">
@@ -41,11 +47,6 @@
         </div>
 
         <div class="row justify-content-center" id="selectAndSave" v-if="gameView != undefined">
-            <div class="col-12">
-                <h5 v-if="gameView.state == 'WAITING_YOU_SHIPS'" class="textShips text-light text-center">
-                    {{status}}
-                </h5>
-            </div>
             <div class="col-2" v-show="gameView.ships != null && app.gameView.ships.length == 0">
                 <button v-on:click="crearShips()" class="btn btn-success"><b>Agregar barcos</b></button>
             </div>
@@ -97,21 +98,12 @@
                 </table>
             </div>
             <div class="col-12 col-md-8 col-lg-4" id="tablaSalvos" v-show="gameView.state != 'WAITING_YOU_SHIPS'">
-                <div class="row align-items-center">
-                    <div class="col-3"
-                        v-if="gameView.salvoes != null && gameView.salvoes.length == 0 || gameView.state == 'WAITING_YOU_SALVOS'">
-                        <button id="saveSalvos" class="btn btn-primary" v-on:click="saveSalvos"><b>enviar tiros</b></button>
-                    </div>
-                    <div class="col-9">
-                        <h5 class="text-light" id="textState"><strong>{{status}}</strong></h5>
-                    </div>
-                </div>
                 <table>
-                    <tr>
-                        <thead>
+                    <thead>
+                        <tr>
                             <th class="celdas">#</th>
                             <th class="celdas" v-for="number in numeros">{{number}}</th>
-                    </tr>
+                        </tr>
                     </thead>
                     <tbody class="borde">
                         <tr v-for="letra in letras">

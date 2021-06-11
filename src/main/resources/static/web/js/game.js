@@ -229,7 +229,7 @@ var app = new Vue({
           },
           paintNewSalvos: function (letr, number) {
 
-               if (app.gameView.salvoes.length == 0 || app.gameView.state == 'WAITING_YOU_SALVOS') {
+               if (app.gameView.state == 'WAITING_YOU_SALVOS') {
 
                     var index = app.salvo.locations.indexOf(letr + number);
 
@@ -311,7 +311,7 @@ var app = new Vue({
                })
           },
           sunksOpponent: function () {
-               if (app.gameView.state != 'WAITING_OPPONENT') {
+               if (app.gameView.gamePlayers.length > 1) {
                     app.gameView.opponentHits.forEach(hit => {
                          hit.sunks.forEach(sunk => {
                               sunk.locations.forEach(location => {
